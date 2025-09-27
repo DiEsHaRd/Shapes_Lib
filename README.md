@@ -10,9 +10,11 @@
 Полное покрытие юнит-тестами
 Валидация входных параметров
 
+
 📦 Установка
 git clone <repository-url>
 cd shape-calculator
+
 
 🏗️ Архитектура
 Библиотека построена на принципах ООП с использованием абстрактных базовых классов:
@@ -40,18 +42,15 @@ triangle_area = calculator.calculate_area(triangle)  # 6.00
 is_right = triangle.is_right_triangle()  # True
 Полиморфная обработка фигур
 python
-shapes = [
-    calculator.create_circle(3),
-    calculator.create_triangle(3, 4, 5),
-    calculator.create_triangle(5, 5, 5)
-]
+shapes = [calculator.create_circle(3), calculator.create_triangle(3, 4, 5), calculator.create_triangle(5, 5, 5)]
 
 # Одинаковый код для разных типов фигур
 for shape in shapes:
     area = calculator.calculate_area(shape)
     print(f"Площадь: {area:.2f}")
+    
 Добавление новой фигуры
-python
+
 class Rectangle:
     def __init__(self, width, height):
         self.width = width
@@ -63,28 +62,7 @@ class Rectangle:
     def is_valid(self):
         return self.width > 0 and self.height > 0
 
-# Теперь Rectangle можно использовать вместе с другими фигурами
-rectangle = Rectangle(4, 5)
-area = calculator.calculate_area(rectangle)  # 20.00
-🧪 Тестирование
-Запуск тестов:
-
-bash
-python -m unittest test_shapes.py
-Тесты покрывают:
-
-Вычисление площадей для различных фигур
-
-Валидацию входных параметров
-
-Проверку треугольников на прямоугольность
-
-Обработку невалидных данных
-
-Полиморфное поведение
-
 📊 Пример вывода
-text
 === Демонстрация библиотеки для вычисления площадей фигур ===
 
 Расчет площадей всех фигур:
