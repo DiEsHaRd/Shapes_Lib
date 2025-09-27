@@ -1,83 +1,103 @@
 # Shapes_Lib
 Библиотека для вычисления площадей геометрических фигур с поддержкой полиморфизма и легким расширением.
 
-🚀 Особенности
+Особенности
+
 Вычисление площади круга по радиусу
+
 Вычисление площади треугольника по трем сторонам
+
 Проверка треугольника на прямоугольность
+
 Полиморфная обработка фигур без знания типа на этапе компиляции
+
 Простое добавление новых фигур через наследование
+
 Полное покрытие юнит-тестами
+
 Валидация входных параметров
 
 
 📦 Установка
-git clone <repository-url>
-cd shape-calculator
+
+    git clone <repository-url>
+
+    cd shape-calculator
 
 
 🏗️ Архитектура
 Библиотека построена на принципах ООП с использованием абстрактных базовых классов:
+
 Shape - абстрактный базовый класс для всех фигур
+
 Circle - класс для работы с кругами
+
 Triangle - класс для работы с треугольниками
+
 ShapeCalculator - фабрика для создания и работы с фигурами
 
+
 💻 Использование
+
 Базовые операции
 
-from shapes import ShapeCalculator
-
-calculator = ShapeCalculator()
+    from shapes import ShapeCalculator
+    calculator = ShapeCalculator()
 
 # Создание фигур
-circle = calculator.create_circle(5)
-triangle = calculator.create_triangle(3, 4, 5)
+
+    circle = calculator.create_circle(5)
+    triangle = calculator.create_triangle(3, 4, 5)
 
 # Вычисление площадей
-circle_area = calculator.calculate_area(circle)  # 78.54
-triangle_area = calculator.calculate_area(triangle)  # 6.00
+
+    circle_area = calculator.calculate_area(circle) 
+    triangle_area = calculator.calculate_area(triangle) 
 
 # Проверка треугольника на прямоугольность
-is_right = triangle.is_right_triangle()  # True
+
+    is_right = triangle.is_right_triangle()
+
 Полиморфная обработка фигур
-python
-shapes = [calculator.create_circle(3), calculator.create_triangle(3, 4, 5), calculator.create_triangle(5, 5, 5)]
+
+    shapes = [calculator.create_circle(3), calculator.create_triangle(3, 4, 5), calculator.create_triangle(5, 5, 5)]
 
 # Одинаковый код для разных типов фигур
-for shape in shapes:
-    area = calculator.calculate_area(shape)
-    print(f"Площадь: {area:.2f}")
+
+    for shape in shapes:
+        area = calculator.calculate_area(shape)
+        print(f"Площадь: {area:.2f}")
+    
     
 Добавление новой фигуры
 
-class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
+    class Rectangle:
+
+        def __init__(self, width, height):
+            self.width = width
+            self.height = height
     
-    def area(self):
-        return self.width * self.height
+        def area(self):
+            return self.width * self.height
     
-    def is_valid(self):
-        return self.width > 0 and self.height > 0
+        def is_valid(self):
+            return self.width > 0 and self.height > 0
 
 📊 Пример вывода
-=== Демонстрация библиотеки для вычисления площадей фигур ===
 
-Расчет площадей всех фигур:
---------------------------------------------------
-1. Circle(radius=5)
-   Площадь: 78.54
-   Диаметр: 10.00
-
-2. Triangle(a=3, b=4, c=5)
-   Площадь: 6.00
-   Прямоугольный: Да
-
-3. Triangle(a=5, b=5, c=5)
-   Площадь: 10.83
-   Прямоугольный: Нет
+    Расчет площадей всех фигур:
+    --------------------------------------------------
+    1. Circle(radius=5)
+       Площадь: 78.54
+       Диаметр: 10.00
+    
+    2. Triangle(a=3, b=4, c=5)
+       Площадь: 6.00
+       Прямоугольный: Да
+    
+    3. Triangle(a=5, b=5, c=5)
+       Площадь: 10.83
+       Прямоугольный: Нет
 
    
 🎯 Ключевые преимущества
